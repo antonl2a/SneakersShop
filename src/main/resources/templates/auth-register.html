@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/fragment :: head"></head>
+
+<body>
+
+<header th:replace="fragments/fragment :: navigation"></header>
+
+<main class="p-5 align-content-center bg-blur my-register-div">
+  <h1 class="text-light border-bottom">Register</h1>
+  <div class="d-flex justify-content-center ">
+    <div class="row g-3 align-items-center">
+      <img alt="Sneaker Shop Sign" th:src="@{/images/sneakerShopSign.jpg}" class="w-50 rounded">
+    </div>
+    <div class="row g-3">
+      <form
+              method="POST"
+              th:action="@{/users/register}"
+              th:object="${userRegisterBindingModel}"
+              >
+        <!-- Username -->
+        <div>
+          <div class="col-auto">
+            <label for="inputUsername" class="col-form-label text-light">Username</label>
+          </div>
+          <div class="col-auto">
+            <input name="username"
+                   th:value="*{username}"
+                   th:errorclass="is-invalid"
+                   type="text"
+                   id="inputUsername"
+                   class="form-control"
+                   aria-describedby="usernameHelpInline">
+            <small id="usernameError"
+                   th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                   class="invalid-feedback text-light form-text bg-danger rounded">Username length must be more than 5 characters</small>
+
+
+            <small th:if="${userExistsError}" id="usernameUniqueError"
+                   class="text-light form-text bg-danger rounded">Username is already occupied</small>
+
+
+          </div>
+        </div>
+        <!-- EO: Username -->
+
+        <!-- Password -->
+        <div>
+          <div class="col-auto">
+            <label for="inputPassword" class="col-form-label text-light">Password</label>
+          </div>
+          <div class="col-auto">
+            <input name="password"
+                   th:errorclass="is-invalid"
+                   type="password"
+                   id="inputPassword"
+                   class="form-control"
+                   aria-describedby="passwordHelpInline">
+            <small id="passwordError"
+                   class="invalid-feedback text-light form-text bg-danger rounded"
+                   th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+              Password length must be between 5 and 20 characters and passwords should match.
+            </small>
+          </div>
+        </div>
+        <!-- EO: Password -->
+
+        <!-- Password confirm -->
+        <div>
+          <div class="col-auto">
+            <label for="inputConfirmPassword" class="col-form-label text-light">Confirm Password</label>
+          </div>
+          <div class="col-auto">
+            <input name="rePassword"
+                   th:errorclass="is-invalid"
+                   type="password"
+                   id="inputConfirmPassword"
+                   class="form-control"
+                   aria-describedby="confirmPasswordHelpInline">
+            <small id="confirmPasswordError"
+                   class="invalid-feedback text-light form-text bg-danger rounded">
+              Password length must be between 5 and 20 characters and passwords should match.
+            </small>
+          </div>
+        </div>
+        <!-- EO: Password confirm -->
+
+        <div class="d-flex justify-content-center mt-4">
+          <button class="btn btn-primary btn-block w-50" type="submit">Register</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>
+<footer th:replace="fragments/fragment :: footer"></footer>
+</body>
+</html>
