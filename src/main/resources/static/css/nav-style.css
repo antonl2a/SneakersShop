@@ -1,0 +1,32 @@
+.navbar-nav.row {
+    margin-right: 10px;
+}
+
+.logout-button {
+    outline: none;
+    background: transparent;
+    border: 1px solid #f8f9fa;
+    color: #f8f9fa!important;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.logout-button:hover {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    color: #212121!important;
+}
+
+.logout-button:focus-within, .logout-button:focus, .logout-button:active {
+    border: none;
+    outline: none;
+}
