@@ -31,10 +31,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
+                csrf().disable().
+                cors().disable().
                 authorizeRequests().
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
                         antMatchers("/home", "/users/login", "/users/register").permitAll().
                         antMatchers("/sneakers/add").hasRole("ADMIN").
+                        antMatchers("/sneakers/order").hasAnyRole("USER", "ADMIN").
                         antMatchers("/**").authenticated().
                 and().
                         formLogin().

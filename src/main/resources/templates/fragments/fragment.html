@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="/css/index-style.css">
   <link rel="stylesheet" href="/css/add-sneaker-style.css">
   <link rel="stylesheet" href="/css/nav-style.css">
+  <link rel="stylesheet" href="/css/view-sneakers-style.css">
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script defer src="/js/carouser.js"></script>
+  <script defer src="/js/order-sneaker.js"></script>
 </head>
 
 <body>
@@ -58,10 +60,10 @@
           </a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item ">
-          <a class="nav-link text-white active h5" href="/albums/add">Ask about a sneaker</a>
+          <a class="nav-link text-white active h5" href="/sneakers/ask">Ask about a sneaker</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item ">
-          <a class="nav-link text-white active h5" href="/articles/all">All sneakers</a>
+          <a class="nav-link text-white active h5" href="/sneakers/all">All sneakers</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item">
           <form th:action="@{/logout}" method="POST">
