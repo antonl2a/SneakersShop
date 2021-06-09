@@ -1,0 +1,2 @@
+1. When configuring the sneakerQuestion view/model, implement cloudinary service, to upload an issue, regarding a sneaker/anything,
+using <input type="file"> in the html template. The cloudinary service is ready to use.(Error Handling lecture)

@@ -1,11 +1,13 @@
 package com.shop.services.impl;
 
+import com.cloudinary.Cloudinary;
 import com.shop.models.entities.SneakerEntity;
 import com.shop.models.enums.BrandEnum;
 import com.shop.models.enums.SneakerConditionEnum;
 import com.shop.models.service.SneakerAddServiceModel;
 import com.shop.models.service.SneakerViewModel;
 import com.shop.repositories.SneakerRepository;
+import com.shop.services.CloudinaryService;
 import com.shop.services.SneakerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -22,11 +24,13 @@ public class SneakerServiceImpl implements SneakerService
 
     private final SneakerRepository sneakerRepository;
     private final ModelMapper modelMapper;
+    private final CloudinaryService cloudinaryService;
 
-    public SneakerServiceImpl(SneakerRepository sneakerRepository, ModelMapper modelMapper)
+    public SneakerServiceImpl(SneakerRepository sneakerRepository, ModelMapper modelMapper, Cloudinary cloudinary, CloudinaryService cloudinaryService)
     {
         this.sneakerRepository = sneakerRepository;
         this.modelMapper = modelMapper;
+        this.cloudinaryService = cloudinaryService;
     }
 
     @Override
@@ -115,6 +119,7 @@ public class SneakerServiceImpl implements SneakerService
 
     }
 
+
     private <T> T randomInArray(T[] arr)
     {
         final int index = randomNumberInRange(0, arr.length);
@@ -126,4 +131,6 @@ public class SneakerServiceImpl implements SneakerService
     {
         return ThreadLocalRandom.current().nextInt(min, max);
     }
+
+
 }
