@@ -1,16 +1,19 @@
 package com.shop.models.entities;
 
 import com.shop.models.enums.BrandEnum;
-import com.shop.models.enums.InStockEnum;
 import com.shop.models.enums.SneakerConditionEnum;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "sneakers")
-public class SneakerEntity extends BaseEntity {
+public class SneakerEntity extends BaseEntity
+{
 
 
     @Enumerated(EnumType.STRING)
@@ -28,54 +31,66 @@ public class SneakerEntity extends BaseEntity {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String sneakerImgUrl;
 
-    @Enumerated(EnumType.STRING)
-    private InStockEnum sneakerInStock;
+    @Column(nullable = false)
+    private int quantity;
 
-    public BrandEnum getSneakerBrand() {
+    public BrandEnum getSneakerBrand()
+    {
         return sneakerBrand;
     }
 
-    public void setSneakerBrand(BrandEnum sneakerBrand) {
+    public void setSneakerBrand(BrandEnum sneakerBrand)
+    {
         this.sneakerBrand = sneakerBrand;
     }
 
-    public SneakerConditionEnum getSneakerCondition() {
+    public SneakerConditionEnum getSneakerCondition()
+    {
         return sneakerCondition;
     }
 
-    public void setSneakerCondition(SneakerConditionEnum sneakerCondition) {
+    public void setSneakerCondition(SneakerConditionEnum sneakerCondition)
+    {
         this.sneakerCondition = sneakerCondition;
     }
 
-    public String getColour() {
+    public String getColour()
+    {
         return colour;
     }
 
-    public void setColour(String colour) {
+    public void setColour(String colour)
+    {
         this.colour = colour;
     }
 
-    public BigDecimal getPrice() {
+    public BigDecimal getPrice()
+    {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(BigDecimal price)
+    {
         this.price = price;
     }
 
-    public String getSneakerImgUrl() {
+    public String getSneakerImgUrl()
+    {
         return sneakerImgUrl;
     }
 
-    public void setSneakerImgUrl(String sneakerImgUrl) {
+    public void setSneakerImgUrl(String sneakerImgUrl)
+    {
         this.sneakerImgUrl = sneakerImgUrl;
     }
 
-    public InStockEnum getSneakerInStock() {
-        return sneakerInStock;
+    public int getQuantity()
+    {
+        return quantity;
     }
 
-    public void setSneakerInStock(InStockEnum sneakerInStock) {
-        this.sneakerInStock = sneakerInStock;
+    public void setQuantity(int quantity)
+    {
+        this.quantity = quantity;
     }
 }

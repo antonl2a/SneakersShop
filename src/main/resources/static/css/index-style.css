@@ -1,0 +1,61 @@
+main.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.ss-carousel {
+    width: 90%;
+    height: 450px;
+    margin: auto;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+    grid-template-rows: 450px;
+    grid-column-gap: 10px;
+    align-items: center;
+}
+
+.ss-carousel * {
+    user-select: none;
+}
+
+.ss-carousel > * {
+    height: max-content;
+}
+
+.arrow {
+
+    overflow: hidden;
+}
+
+.arrow > svg {
+    fill: white;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: box-shadow 200ms linear;
+}
+
+.arrow > svg:hover {
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.carousel-content {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.carousel-content > .card {
+    flex: 0 0 400px;
+    margin: 0 10px;
+}
+
+.card img {
+
+}
+

@@ -7,6 +7,4 @@ public interface SneakerService {
     boolean sneakerExists(String sneakerImgUrl);
 
     void addSneaker(SneakerAddServiceModel sneakerAddServiceModel);
-
-    void addSneakerOffer();
 }
