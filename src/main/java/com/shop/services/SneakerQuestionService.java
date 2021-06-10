@@ -1,6 +1,10 @@
 package com.shop.services;
 
+import com.shop.models.service.SneakerQuestionServiceModel;
+
+import java.io.IOException;
+
 public interface SneakerQuestionService {
 
-    void addSneakerQuestion();
+    void addQuestion(SneakerQuestionServiceModel serviceModel) throws IOException;
 }

@@ -1,0 +1,24 @@
+.sneaker-question-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+.sneaker-question-form {
+    width: 500px;
+    background: #fefefecc;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.h1-question {
+    position: absolute;
+    top: 0;
+    background: #fefefecc;
+    color: black;
+    font-family: Roboto, sans-serif;
+}

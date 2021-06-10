@@ -1,7 +1,5 @@
 package com.shop.models.entities;
 
-import com.shop.models.enums.QuestionTypeEnum;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,11 +9,19 @@ public class SneakerQuestionEntity extends BaseEntity {
     @Column(name = "question")
     private String question;
 
-    @Enumerated(EnumType.STRING)
-    private QuestionTypeEnum typeOfQuestion;
+    @Column(name = "image", columnDefinition = "TEXT")
+    private String issueImg;
 
-    @Column(nullable = true)
+    @Column(name = "recommendations")
     private String recommendations;
+
+    public String getIssueImg() {
+        return issueImg;
+    }
+
+    public void setIssueImg(String issueImg) {
+        this.issueImg = issueImg;
+    }
 
     public String getQuestion() {
         return question;
@@ -25,13 +31,6 @@ public class SneakerQuestionEntity extends BaseEntity {
         this.question = question;
     }
 
-    public QuestionTypeEnum getTypeOfQuestion() {
-        return typeOfQuestion;
-    }
-
-    public void setTypeOfQuestion(QuestionTypeEnum typeOfQuestion) {
-        this.typeOfQuestion = typeOfQuestion;
-    }
 
     public String getRecommendations() {
         return recommendations;

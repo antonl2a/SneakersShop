@@ -1,2 +1,6 @@
 1. When configuring the sneakerQuestion view/model, implement cloudinary service, to upload an issue, regarding a sneaker/anything,
 using <input type="file"> in the html template. The cloudinary service is ready to use.(Error Handling lecture)
+
+2. 1) is nearly done, only thing left to do is fix the style of the template and implement the cloudinary functionality.
+
+3. Cloudinary service is implemented, throws NullPointer.
