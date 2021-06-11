@@ -9,17 +9,24 @@ public class SneakerQuestionEntity extends BaseEntity {
     @Column(name = "question")
     private String question;
 
-    @Column(name = "image", columnDefinition = "TEXT")
-    private String issueImg;
+    @Lob
+    @Column(name = "issueImg")
+    private byte[] issueImg;
 
     @Column(name = "recommendations")
     private String recommendations;
 
-    public String getIssueImg() {
+    public SneakerQuestionEntity(String question, byte[] issueImg, String recommendations) {
+        this.question = question;
+        this.issueImg = issueImg;
+        this.recommendations = recommendations;
+    }
+
+    public byte[] getIssueImg() {
         return issueImg;
     }
 
-    public void setIssueImg(String issueImg) {
+    public void setIssueImg(byte[] issueImg) {
         this.issueImg = issueImg;
     }
 

@@ -1,5 +1,7 @@
 package com.shop.models.binding;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -11,7 +13,7 @@ public class SneakerQuestionBindingModel {
 
     private String recommendations;
 
-    private String issueImg;
+    private MultipartFile issueImg;
 
     public String getQuestion() {
         return question;
@@ -29,11 +31,12 @@ public class SneakerQuestionBindingModel {
         this.recommendations = recommendations;
     }
 
-    public String getIssueImg() {
+    public MultipartFile getIssueImg() {
         return issueImg;
     }
 
-    public void setIssueImg(String issueImg) {
+    public void setIssueImg(MultipartFile issueImg) {
         this.issueImg = issueImg;
     }
 }
+

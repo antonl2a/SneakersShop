@@ -6,10 +6,8 @@ import com.shop.services.SneakerQuestionService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -42,14 +40,18 @@ public class SneakerQuestionController {
     @PostMapping("/ask")
     public String sneakerQuestionPost(@Valid SneakerQuestionBindingModel sneakerQuestionBindingModel,
                                       BindingResult bindingResult,
-                                      RedirectAttributes redirectAttributes) throws IOException {
+                                      RedirectAttributes redirectAttributes,
+                                      @RequestParam("issueImg") MultipartFile img) throws IOException {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("sneakerQuestionBindingModel", sneakerQuestionBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.sneakerQuestionBindingModel", bindingResult);
             return "redirect:/sneakers/ask";
         }
-        SneakerQuestionServiceModel sneakerQuestionServiceModel = modelMapper.map(sneakerQuestionBindingModel, SneakerQuestionServiceModel.class);
 
+        SneakerQuestionServiceModel sneakerQuestionServiceModel = new SneakerQuestionServiceModel();
+        sneakerQuestionServiceModel.setIssueImg(img);
+        sneakerQuestionServiceModel.setQuestion(sneakerQuestionBindingModel.getQuestion());
+        sneakerQuestionServiceModel.setRecommendations(sneakerQuestionBindingModel.getRecommendations());
         sneakerQuestionService.addQuestion(sneakerQuestionServiceModel);
 
 
