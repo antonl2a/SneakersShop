@@ -3,12 +3,8 @@
     padding: 30px;
 }
 
-.filters {
-    flex: 1 0 20%;
-}
-
 .sneakers {
-    flex: 0 1 80%;
+    flex: 1 1 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

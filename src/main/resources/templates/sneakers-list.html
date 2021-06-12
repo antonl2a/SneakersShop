@@ -8,8 +8,6 @@
 <header th:replace="fragments/fragment :: navigation"></header>
 
 <main class="view-sneakers-main">
-    <div class="filters">
-    </div>
     <div class="sneakers">
         <th:block th:each="sneaker : ${sneakers}">
             <div class="sneaker-card">

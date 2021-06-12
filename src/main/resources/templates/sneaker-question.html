@@ -13,7 +13,7 @@
         recommendations?
         Feel free to fill out the form below. </h1>
 
-    <form th:action="@{/sneakers/ask}" method="POST" enctype="multipart/form-data" class="sneaker-question-form"
+    <form th:action="@{/sneakers/ask}" method="POST" class="sneaker-question-form"
           th:object="${sneakerQuestionBindingModel}">
 
         <div class="form-group">
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="issueImg">Attach an image file of the error you are receiving:</label>
-            <input type="file" name="issueImg" id="issueImg" style="font-family: Roboto,sans-serif">
+            <input type="file" style="font-family: Roboto,sans-serif">
         </div>
         <div class="form-group">
             <label for="recommendations">Recommendations about bettering your user experience:</label>
