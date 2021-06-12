@@ -9,37 +9,40 @@
 <header th:replace="fragments/fragment :: navigation"></header>
 
 <main class="sneaker-question-main">
-    <h1 class="question-h1">You have a question, whether a sneaker is in stock, an issue with an order, or any
-        recommendations?
-        Feel free to fill out the form below. </h1>
+    <div class="sneaker-question-content">
+        <h1 class="question-h1">You have a question, whether a sneaker is in stock, an issue with an order, or any
+            recommendations?
+            Feel free to fill out the form below. </h1>
 
-    <form th:action="@{/sneakers/ask}" method="POST" class="sneaker-question-form"
-          th:object="${sneakerQuestionBindingModel}">
+        <form th:action="@{/sneakers/ask}" method="POST" enctype="multipart/form-data" class="sneaker-question-form"
+              th:object="${sneakerQuestionBindingModel}">
 
-        <div class="form-group">
-            <label for="questionTextArea" style="font-family: Roboto, sans-serif">Ask your question/s here:</label>
-            <textarea name="question" id="questionTextArea" cols="30" rows="8" th:value="*{question}"
-                      class="form-control" th:errorclass="is-invalid"></textarea>
-            <small
-                    th:if="${#fields.hasErrors('question')}" th:errors="*{question}"
-                    class="invalid-feedback  form-text rounded">Question must be valid!</small>
-        </div>
-        <div class="form-group">
-            <label for="issueImg">Attach an image file of the error you are receiving:</label>
-            <input type="file" style="font-family: Roboto,sans-serif">
-        </div>
-        <div class="form-group">
-            <label for="recommendations">Recommendations about bettering your user experience:</label>
-            <textarea name="recommendations" id="recommendations" cols="30" rows="8" th:value="*{recommendations}"
-                      class="form-control" th:errorclass="is-invalid"></textarea>
-        </div>
+            <div class="form-group question-text">
+                <label for="questionTextArea" style="font-family: Roboto, sans-serif">Ask your question/s here:</label>
+                <textarea name="question" id="questionTextArea" cols="30" rows="14" th:value="*{question}"
+                          class="form-control" th:errorclass="is-invalid"></textarea>
+                <small
+                        th:if="${#fields.hasErrors('question')}" th:errors="*{question}"
+                        class="invalid-feedback  form-text rounded">Question must be valid!</small>
+            </div>
+            <div class="form-group upload-image">
+                <label for="issueImg">Attach an image file of the error you are receiving:</label>
+                <input type="file" hidden name="issueImg" id="issueImg">
+                <button class="btn btn-outline-primary" id="uploadImgButton">Upload image</button>
+                <img id="uploadImagePreview" />
+            </div>
+            <div class="form-group recommendations">
+                <label for="recommendations">Recommendations about bettering your user experience:</label>
+                <textarea name="recommendations" id="recommendations" cols="30" rows="14" th:value="*{recommendations}"
+                          class="form-control" th:errorclass="is-invalid"></textarea>
+            </div>
 
-        <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-primary btn-block w-50" type="submit">Submit</button>
-        </div>
+            <div class="submit-button">
+                <button class="btn btn-primary btn-block w-50" type="submit">Submit</button>
+            </div>
 
-    </form>
-
+        </form>
+    </div>
 </main>
 
 

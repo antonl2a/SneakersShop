@@ -24,14 +24,13 @@ public class SneakerQuestionServiceImpl implements SneakerQuestionService {
 
     @Override
     public void addQuestion(SneakerQuestionServiceModel serviceModel) throws IOException {
-        MultipartFile issueImg = serviceModel.getIssueImg();
-        String imgUrl = cloudinaryService.uploadImage(issueImg);
+        byte[] data = serviceModel.getIssueImg().getBytes();
 
-        SneakerQuestionEntity sneakerQuestion = new SneakerQuestionEntity();
-
-        sneakerQuestion.setIssueImg(imgUrl);
-        sneakerQuestion.setRecommendations(serviceModel.getRecommendations());
-        sneakerQuestion.setQuestion(serviceModel.getQuestion());
-        sneakerQuestionRepository.save(sneakerQuestion);
+        try {
+            SneakerQuestionEntity entity = new SneakerQuestionEntity(serviceModel.getQuestion(), data, serviceModel.getRecommendations());
+            sneakerQuestionRepository.save(entity);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
