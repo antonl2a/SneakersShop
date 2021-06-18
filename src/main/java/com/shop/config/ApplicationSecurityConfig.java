@@ -35,7 +35,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 cors().disable().
                 authorizeRequests().
                         requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().
-                        antMatchers("/home", "/users/login", "/users/register").permitAll().
+                        antMatchers("/home", "/users/login", "/users/register", "/sneakers/api").permitAll().
                         antMatchers("/sneakers/add").hasRole("ADMIN").
                         antMatchers("/sneakers/order").hasAnyRole("USER", "ADMIN").
                         antMatchers("/**").authenticated().

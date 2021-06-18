@@ -45,3 +45,11 @@ body {
     background-image: url("/images/instruments.jpg");
     background-position: center;
 }
+
+input:valid {
+    border: lawngreen solid 3px;
+}
+
+input:invalid {
+    border: orangered solid 3px;
+}
