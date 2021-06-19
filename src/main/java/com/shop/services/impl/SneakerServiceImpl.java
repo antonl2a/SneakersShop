@@ -119,6 +119,12 @@ public class SneakerServiceImpl implements SneakerService
 
     }
 
+    @Override
+    public SneakerEntity findEntityById(Long sneakerId) {
+
+        return sneakerRepository.findById(sneakerId).orElseThrow(IllegalArgumentException::new);
+    }
+
 
     private <T> T randomInArray(T[] arr)
     {

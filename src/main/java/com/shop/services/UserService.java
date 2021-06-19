@@ -1,5 +1,6 @@
 package com.shop.services;
 
+import com.shop.models.entities.UserEntity;
 import com.shop.models.service.UserRegisterServiceModel;
 
 public interface UserService {
@@ -7,4 +8,6 @@ public interface UserService {
     void loginAndRegisterUser(UserRegisterServiceModel userRegisterServiceModel);
     void seedUsers();
     boolean userNameExists(String username);
+
+    UserEntity findByName(String username);
 }

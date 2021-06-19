@@ -1,5 +1,6 @@
 package com.shop.services;
 
+import com.shop.models.entities.SneakerEntity;
 import com.shop.models.enums.BrandEnum;
 import com.shop.models.enums.SneakerConditionEnum;
 import com.shop.models.service.SneakerAddServiceModel;
@@ -27,4 +28,6 @@ public interface SneakerService {
      * Seed the default sneakers in the databse
      */
     void seedSneakers();
+
+    SneakerEntity findEntityById(Long sneakerId);
 }
