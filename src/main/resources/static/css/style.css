@@ -41,15 +41,11 @@ body {
     height: 500px;
 }
 
-#all-articles-jumbotron {
-    background-image: url("/images/instruments.jpg");
-    background-position: center;
-}
 
-input:valid {
-    border: lawngreen solid 3px;
-}
+/*input:valid {*/
+/*    border: lawngreen solid 3px;*/
+/*}*/
 
-input:invalid {
-    border: orangered solid 3px;
-}
+/*input:invalid {*/
+/*    border: orangered solid 3px;*/
+/*}*/

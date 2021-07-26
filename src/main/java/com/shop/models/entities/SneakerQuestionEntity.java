@@ -16,6 +16,9 @@ public class SneakerQuestionEntity extends BaseEntity {
     @Column(name = "recommendations")
     private String recommendations;
 
+    public SneakerQuestionEntity() {
+    }
+
     public SneakerQuestionEntity(String question, byte[] issueImg, String recommendations) {
         this.question = question;
         this.issueImg = issueImg;
