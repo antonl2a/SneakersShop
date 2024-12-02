@@ -99,7 +99,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 5px;
     grid-template-areas: "pl sp . . cl sc"
-                         "ul su . .  .  .";
+                         "ul su . .  bc  ac";
 }
 
 .meta-info > * {
@@ -113,6 +113,12 @@
 
 .sneaker-price {
     grid-area: sp;
+}
+.sneaker-size {
+    grid-area: ac;
+}
+.size-label {
+    grid-area: bc;
 }
 
 .condition-label {

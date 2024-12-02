@@ -37,6 +37,10 @@
 .question-h1 {
     font-size: 1.5em!important;
     margin: 15px 0 30px 0;
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .question-text {
@@ -55,6 +59,13 @@
     grid-area: sb;
     display: flex;
     justify-content: flex-end;
+}
+
+.form-question {
+    color: black;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #uploadImagePreview {

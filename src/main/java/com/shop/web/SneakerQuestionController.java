@@ -40,8 +40,7 @@ public class SneakerQuestionController {
     @PostMapping("/ask")
     public String sneakerQuestionPost(@Valid SneakerQuestionBindingModel sneakerQuestionBindingModel,
                                       BindingResult bindingResult,
-                                      RedirectAttributes redirectAttributes,
-                                      @RequestParam("issueImg") MultipartFile img) throws IOException {
+                                      RedirectAttributes redirectAttributes) throws IOException {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("sneakerQuestionBindingModel", sneakerQuestionBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.sneakerQuestionBindingModel", bindingResult);
@@ -49,11 +48,8 @@ public class SneakerQuestionController {
         }
 
         SneakerQuestionServiceModel sneakerQuestionServiceModel = new SneakerQuestionServiceModel();
-        sneakerQuestionServiceModel.setIssueImg(img);
         sneakerQuestionServiceModel.setQuestion(sneakerQuestionBindingModel.getQuestion());
-        sneakerQuestionServiceModel.setRecommendations(sneakerQuestionBindingModel.getRecommendations());
         sneakerQuestionService.addQuestion(sneakerQuestionServiceModel);
-
 
         return "redirect:/home";
     }

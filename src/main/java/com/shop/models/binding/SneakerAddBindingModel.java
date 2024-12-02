@@ -22,10 +22,22 @@ public class SneakerAddBindingModel
     private BigDecimal price;
     @NotBlank(message = "Please insert an image of the sneaker.")
     private String sneakerImgUrl;
+    @NotNull(message = "Please provide a sneaker size.")
+    @DecimalMin(value = "36", message = "Provide a valid size")
+    @DecimalMax(value = "52", message = "You cannot provide a size higher than 52")
+    private int size;
     @NotNull(message = "Quantity is required")
     @DecimalMin(value = "1", message = "Provide at least 1 item")
     @DecimalMax(value = "100", message = "You cannot add more than 100 items")
     private int quantity;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public String getBrand()
     {
@@ -86,4 +98,5 @@ public class SneakerAddBindingModel
     {
         this.quantity = quantity;
     }
+
 }

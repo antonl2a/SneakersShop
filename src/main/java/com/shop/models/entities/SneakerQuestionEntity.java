@@ -8,29 +8,14 @@ public class SneakerQuestionEntity extends BaseEntity {
 
     @Column(name = "question")
     private String question;
-
-    @Lob
-    @Column(name = "issueImg")
-    private byte[] issueImg;
-
-    @Column(name = "recommendations")
-    private String recommendations;
-
+    @Column(name = "username")
+    private String username;
     public SneakerQuestionEntity() {
     }
 
-    public SneakerQuestionEntity(String question, byte[] issueImg, String recommendations) {
+    public SneakerQuestionEntity(String question, String username) {
         this.question = question;
-        this.issueImg = issueImg;
-        this.recommendations = recommendations;
-    }
-
-    public byte[] getIssueImg() {
-        return issueImg;
-    }
-
-    public void setIssueImg(byte[] issueImg) {
-        this.issueImg = issueImg;
+        this.username = username;
     }
 
     public String getQuestion() {
@@ -41,12 +26,11 @@ public class SneakerQuestionEntity extends BaseEntity {
         this.question = question;
     }
 
-
-    public String getRecommendations() {
-        return recommendations;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRecommendations(String recommendations) {
-        this.recommendations = recommendations;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

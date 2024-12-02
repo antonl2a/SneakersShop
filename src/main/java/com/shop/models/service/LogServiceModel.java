@@ -14,8 +14,26 @@ public class LogServiceModel {
     private String sneakerEntity;
     private int orderCount;
     private LocalDateTime dateTime;
+    private int size;
+    private Long sneakerId;
 
     public LogServiceModel() {
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public Long getSneakerId() {
+        return sneakerId;
+    }
+
+    public void setSneakerId(Long sneakerId) {
+        this.sneakerId = sneakerId;
     }
 
     public String getUserEntity() {

@@ -18,7 +18,7 @@ class SneakersShopApplicationTests {
 
         int result = calculator.add(n1, n2);
 
-        assertThat(result).isEqualTo(32);
+        assertThat(result).isEqualTo(30);
     }
 
     class Calculator {

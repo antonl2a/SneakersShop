@@ -1,13 +1,11 @@
 package com.shop.services.impl;
 
-import com.cloudinary.Cloudinary;
 import com.shop.models.entities.SneakerEntity;
 import com.shop.models.enums.BrandEnum;
 import com.shop.models.enums.SneakerConditionEnum;
 import com.shop.models.service.SneakerAddServiceModel;
 import com.shop.models.service.SneakerViewModel;
 import com.shop.repositories.SneakerRepository;
-import com.shop.services.CloudinaryService;
 import com.shop.services.SneakerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -24,13 +22,11 @@ public class SneakerServiceImpl implements SneakerService
 
     private final SneakerRepository sneakerRepository;
     private final ModelMapper modelMapper;
-    private final CloudinaryService cloudinaryService;
 
-    public SneakerServiceImpl(SneakerRepository sneakerRepository, ModelMapper modelMapper, Cloudinary cloudinary, CloudinaryService cloudinaryService)
+    public SneakerServiceImpl(SneakerRepository sneakerRepository, ModelMapper modelMapper)
     {
         this.sneakerRepository = sneakerRepository;
         this.modelMapper = modelMapper;
-        this.cloudinaryService = cloudinaryService;
     }
 
     @Override
@@ -94,6 +90,7 @@ public class SneakerServiceImpl implements SneakerService
     {
         BrandEnum[] allBrands = BrandEnum.values();
         SneakerConditionEnum[] allConditions = SneakerConditionEnum.values();
+        Integer[] sizes = {40, 41, 45, 46, 44, 43};
         String[] colors = {"Red", "Blue", "Green", "Yellow", "Cyan", "Black", "White"};
         String[] sneakerUrls = {"https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c25lYWtlcnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
                 "https://images.unsplash.com/photo-1552346154-21d32810aba3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c25lYWtlcnN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -109,6 +106,7 @@ public class SneakerServiceImpl implements SneakerService
         for (int i = 0; i < RANDOM_SNEAKER_COUNT; i++) {
             SneakerEntity sneaker = new SneakerEntity();
             sneaker.setColour(randomInArray(colors));
+            sneaker.setSize(randomInArray(sizes));
             sneaker.setSneakerBrand(randomInArray(allBrands));
             sneaker.setSneakerCondition(randomInArray(allConditions));
             sneaker.setSneakerImgUrl(randomInArray(sneakerUrls));

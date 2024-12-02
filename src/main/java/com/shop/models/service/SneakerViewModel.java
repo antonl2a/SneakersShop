@@ -15,6 +15,8 @@ public class SneakerViewModel
 
     private String colour;
 
+    private int size;
+
     private BigDecimal price;
 
     private String sneakerImgUrl;
@@ -25,6 +27,14 @@ public class SneakerViewModel
 
     public SneakerViewModel()
     {
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public long getId()

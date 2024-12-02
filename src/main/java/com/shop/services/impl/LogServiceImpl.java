@@ -62,6 +62,8 @@ public class LogServiceImpl implements LogService {
                     LogServiceModel logServiceModel = modelMapper.map(le, LogServiceModel.class);
                     logServiceModel.setSneakerEntity(le.getSneakerEntity().getSneakerBrand().toString());
                     logServiceModel.setUserEntity(le.getUserEntity().getUsername());
+                    logServiceModel.setSize(le.getSneakerEntity().getSize());
+                    logServiceModel.setSneakerId(le.getSneakerEntity().getId());
                     return logServiceModel;
                 }).
                 collect(Collectors.toList());

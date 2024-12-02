@@ -25,6 +25,9 @@ public class SneakerEntity extends BaseEntity
     @Column(nullable = false)
     private String colour;
 
+    @Column(name = "size", nullable = false)
+    private int size;
+
     @Column(nullable = false)
     private BigDecimal price;
 
@@ -33,6 +36,14 @@ public class SneakerEntity extends BaseEntity
 
     @Column(nullable = false)
     private int quantity;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     public BrandEnum getSneakerBrand()
     {
