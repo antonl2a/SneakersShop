@@ -16,8 +16,17 @@ public class LogServiceModel {
     private LocalDateTime dateTime;
     private int size;
     private Long sneakerId;
+    private String sneakerImgUrl;
 
     public LogServiceModel() {
+    }
+
+    public String getSneakerImgUrl() {
+        return sneakerImgUrl;
+    }
+
+    public void setSneakerImgUrl(String sneakerImgUrl) {
+        this.sneakerImgUrl = sneakerImgUrl;
     }
 
     public int getSize() {

@@ -56,8 +56,7 @@ public class UserServiceImpl implements UserService {
         newUser = userRepository.save(newUser);
 
         UserDetails principal = sneakersShopUserService.loadUserByUsername(newUser.getUsername());
-        System.out.println("im here");
-       Authentication authentication = new UsernamePasswordAuthenticationToken(
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
                principal,
                newUser.getPassword(),
                principal.getAuthorities()
@@ -73,8 +72,8 @@ public class UserServiceImpl implements UserService {
             UserRoleEntity adminRole = new UserRoleEntity().setRole(UserRoleEnum.ADMIN);
             UserRoleEntity userRole = new UserRoleEntity().setRole(UserRoleEnum.USER);
             userRoleRepository.saveAll(List.of(adminRole, userRole));
-            UserEntity admin = new UserEntity().setPassword(passwordEncoder.encode("topsecret")).setUsername("admin");
-            UserEntity user = new UserEntity().setPassword(passwordEncoder.encode("topsecret")).setUsername("user");
+            UserEntity admin = new UserEntity().setPassword(passwordEncoder.encode("topsecret")).setUsername("admin").setPhone("0879843832");
+            UserEntity user = new UserEntity().setPassword(passwordEncoder.encode("topsecret")).setUsername("user").setPhone("0879943832");
             admin.setRoles(List.of(adminRole, userRole));
             user.setRoles(List.of(userRole));
             userRepository.saveAll(List.of(admin, user));

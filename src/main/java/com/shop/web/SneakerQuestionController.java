@@ -1,5 +1,6 @@
 package com.shop.web;
 
+import com.shop.exception.SneakerAppException;
 import com.shop.models.binding.SneakerQuestionBindingModel;
 import com.shop.models.service.SneakerQuestionServiceModel;
 import com.shop.services.SneakerQuestionService;

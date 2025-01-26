@@ -87,6 +87,10 @@ public class SneakerController
             return ResponseEntity.badRequest().body("Input quantity exceeds existing quantity");
         }
 
+        if (orderBindingModel.getQuantity() == sneaker.getQuantity()) {
+            return ResponseEntity.ok("A query has been received. If the pair is still available, we will get in touch with you.");
+        }
+
         sneakerService.orderSneaker(orderBindingModel.getSneakerId(), orderBindingModel.getQuantity());
 
         return ResponseEntity.ok("Successfully ordered sneaker");

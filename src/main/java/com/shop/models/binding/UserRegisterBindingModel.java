@@ -6,7 +6,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@FieldMatch(first = "password", second = "rePassword")
+@FieldMatch(first = "password", second = "rePassword", third = "phone")
 public class UserRegisterBindingModel {
 
     @NotEmpty
@@ -19,6 +19,18 @@ public class UserRegisterBindingModel {
 
     @NotEmpty
     private String rePassword;
+
+    @NotEmpty
+    @Size(min = 6, max = 15, message = "Phone number must be between 6 and 15 characters")
+    private String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getUsername() {
         return username;

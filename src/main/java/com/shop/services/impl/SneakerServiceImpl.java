@@ -77,12 +77,9 @@ public class SneakerServiceImpl implements SneakerService
     {
         SneakerEntity entity = sneakerRepository.findById(sneakerId).orElseThrow();
 
-        if (entity.getQuantity() <= quantity) {
-            sneakerRepository.delete(entity);
-        } else {
-            entity.setQuantity(entity.getQuantity() - quantity);
-            sneakerRepository.save(entity);
-        }
+        entity.setQuantity(entity.getQuantity() - quantity);
+        sneakerRepository.save(entity);
+
     }
 
     @Override
@@ -121,6 +118,11 @@ public class SneakerServiceImpl implements SneakerService
     public SneakerEntity findEntityById(Long sneakerId) {
 
         return sneakerRepository.findById(sneakerId).orElseThrow(IllegalArgumentException::new);
+    }
+
+    @Override
+    public void removeSneaker(long sneakerId) {
+        sneakerRepository.deleteById(sneakerId);
     }
 
 

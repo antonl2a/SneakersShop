@@ -42,6 +42,5 @@ public class LogAspect {
         int orderCount = o.getQuantity();
 
         logService.createLog(sneakerId, orderCount);
-        System.out.println();
     }
 }

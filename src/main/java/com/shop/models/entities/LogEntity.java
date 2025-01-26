@@ -18,8 +18,18 @@ public class LogEntity extends BaseEntity {
     private int orderCount;
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
+    @Column(name = "sneaker_img_url", nullable = false)
+    private String sneakerImgUrl;
 
     public LogEntity() {
+    }
+
+    public String getSneakerImgUrl() {
+        return sneakerImgUrl;
+    }
+
+    public void setSneakerImgUrl(String sneakerImgUrl) {
+        this.sneakerImgUrl = sneakerImgUrl;
     }
 
     public LocalDateTime getDateTime() {

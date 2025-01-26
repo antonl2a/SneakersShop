@@ -48,13 +48,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                         failureForwardUrl("/users/login-error").
                 and().
                         logout().
-                // which endpoint performs logout, e.g. http://localhost:8080/logout (!this should be POST request)
                         logoutUrl("/logout").
-                // where to land after logout
                         logoutSuccessUrl("/").
-                // remove the session from the server
                         invalidateHttpSession(true).
-                // delete the session cookie
                         deleteCookies("JSESSIONID");
 
     }

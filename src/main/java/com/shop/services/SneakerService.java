@@ -30,4 +30,6 @@ public interface SneakerService {
     void seedSneakers();
 
     SneakerEntity findEntityById(Long sneakerId);
+
+    void removeSneaker(long sneakerId);
 }

@@ -49,6 +49,7 @@ public class LogServiceImpl implements LogService {
         logEntity.setSneakerEntity(sneakerEntity);
         logEntity.setDateTime(LocalDateTime.now());
         logEntity.setOrderCount(orderCount);
+        logEntity.setSneakerImgUrl(sneakerEntity.getSneakerImgUrl());
 
         logRepository.save(logEntity);
     }
